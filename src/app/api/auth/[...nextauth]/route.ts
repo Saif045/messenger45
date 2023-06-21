@@ -7,8 +7,9 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 import prisma from "@/libs/prismadb";
 
-export const authOptions: AuthOptions = {
+export const authOptions: AuthOptions & { site: string } = {
   adapter: PrismaAdapter(prisma),
+  site: "https://air-bnb-45.vercel.app/",
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
